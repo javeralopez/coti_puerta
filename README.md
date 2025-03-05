@@ -1,4 +1,4 @@
 # coti_puerta
 cotizador de puertas de fierro
 
-pipv Install Streamlit
+pip Install Streamlit
