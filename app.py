@@ -48,6 +48,36 @@ st.write(f"Costo total del marco Interior: ${costo_total_marco_interior:.2f}")
 
 # --- HERRAJES ---
 # ...
+# prompt: Convierte el código de la celda anterior a streamlit 
+
+import streamlit as st
+
+st.title("Calculadora de Costos de Puertas")
+
+# Obtener dimensiones de la puerta
+ancho = st.number_input("Ingrese el ancho de la puerta (metros):", min_value=0.0, value=1.0)
+alto = st.number_input("Ingrese el alto de la puerta (metros):", min_value=0.0, value=2.0)
+
+# Obtener información del material
+material = st.selectbox("Ingrese el tipo de material:", ["duela", "lámina", "vidrio"])
+descripcion = st.text_input("Ingrese una descripción del material:")
+precio_m2 = st.number_input("Ingrese el precio por metro cuadrado del material:", min_value=0.0, value=10.0)
+
+
+# Calcular el área de la puerta
+area = ancho * alto
+
+# Calcular el costo total
+costo_total_relleno = area * precio_m2
+
+# Mostrar resultados
+st.write("\n--- Resultados ---")
+st.write(f"Ancho de la puerta: {ancho:.2f} metros")
+st.write(f"Alto de la puerta: {alto:.2f} metros")
+st.write(f"Área de la puerta: {area:.2f} metros cuadrados")
+st.write(f"Material: {material} ({descripcion})")
+st.write(f"Precio por metro cuadrado: ${precio_m2:.2f}")
+st.write(f"Costo total del material interior: ${costo_total_relleno:.2f}")
 
 # --- Costo Total ---
 st.header("Costo Total")
